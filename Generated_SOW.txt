@@ -1,0 +1,44 @@
+
+STATEMENT OF WORK #4 
+
+This Statement of Work (“SOW”) is entered into as of 24th April 2023 (Effective Date) by and between Alexion Pharmaceuticals, Inc., a Delaware corporation having a principal place of business at 121 Seaport Blvd., Boston, MA 02210 (“Alexion”), and AGILISIUM CONSULTING LLC with its principal place of business located at 6200 Canoga Ave, Suite 315, Woodland Hills, CA 91367 (“Service Provider”) 
+
+BACKGROUND:  
+
+Agilisium and the Client entered into a Master Service Agreement (the Agreement) on 19th day of July 2023, under which the Client engages Agilisium to perform the services as detailed in this SOW and Agilisium agrees to perform the same on the terms and conditions set out in the Agreement and this SOW.  
+
+BOCE Advanced Information Portal (English Language only) will be setup as a platform to bring key pieces of data from various sources of data that drives significant business needs. The project type is designated as Fixed Bid. The data will be presented as reports, dashboards, graphs/charts, images, and links to documents that will serve the primary needs of commercial staff to be productive and improve performance. 
+
+In the event of any conflicts between the terms and conditions of the Agreement and of this Statement of Work, the terms of the Agreement shall govern and control unless such terms are specifically modified herein as mutually agreed between the Parties. All Capitalized terms used but not defined herein shall have the meaning ascribed to such terms in the Agreement. Any change or modification of this SOW shall be reflected in an appropriate amendment or Change Order and signed by an authorized representative of both parties. 
+
+TERM OF ENGAGEMENT:  
+
+The Services under this SOW will commence on the effective date mentioned below: 
+
+Effective date: 24th April 2023 
+
+Termination Date: 31st Dec’24 
+
+PROJECT MANAGERS / CONTACT: 
+
+Agilisium Project Contact: Manager Name {name@agilisium.com} 
+
+Client Project Contact: Chetan Sohagiya (Chetan.Sohagiya@alexion.com) 
+
+SCOPE OF SERVICE:  
+
+The Portal will support the RDU Business operations team by consolidating all commercial information and reporting into a single location. This will allow the team to quickly identify information needed for business decisions without time consuming navigation between different platforms.  
+
+Scope Items:
+  • Development, Launch and Hypercare of the Application (25th Apr'24 - 31st July'24)
+  • Operational Support of the Application as detailed in Section 16 (1st Aug'24 - 31st Dec'24)
+
+Phase 1 of our project focuses on implementing core features such as single-sign-on authentication, collaboration through Microsoft Teams, favorites management, search capabilities, self-service options and ensuring accessibility across PC, iPad, and mobile devices. Additionally, an admin feature will be established to maintain user security and manage portal functionalities effectively. 
+
+Phase 2 will bring in additional functionalities, including analytics via Chatbot powered by OpenAI ChatGPT. 
+
+ARCHITECTURE: 
+
+[Architecture Diagram Placeholder]
+
+Short description about the image. - along with Tech Stack 
