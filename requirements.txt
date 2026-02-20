@@ -1,2 +1,6 @@
-requests
+fastapi
+uvicorn
 python-docx
+requests
+pydantic
+python-multipart

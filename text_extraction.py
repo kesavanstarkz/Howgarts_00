@@ -9,7 +9,7 @@ def extract_entities(text: str) -> Dict[str, any]:
     
     prompt = f"""
     Extract the following entities from the project text below and return them ONLY as a JSON object.
-    Do not include any reasoning, preambles, or explanations. 
+    Be thorough and capture detailed descriptions for background and scope.
     
     Format:
     {{
@@ -17,7 +17,15 @@ def extract_entities(text: str) -> Dict[str, any]:
         "client_name": "string",
         "effective_date": "string",
         "type": "string",
-        "scope_timeline": ["list of strings"]
+        "scope_timeline": ["list of strings"],
+        "background": "detailed background paragraph",
+        "scope_description": "detailed scope of service summary",
+        "phases": {{
+            "phase_1": "details of phase 1",
+            "phase_2": "details of phase 2"
+        }},
+        "tech_stack": ["list of technologies mentioned"],
+        "client_contact": "name or email if found"
     }}
 
     Text:
@@ -32,37 +40,53 @@ def extract_entities(text: str) -> Dict[str, any]:
     }
 
     try:
-        response = requests.post(url, json=payload, timeout=60)
+        response = requests.post(url, json=payload, timeout=120)
         response.raise_for_status()
         result = response.json()
         
         # Parse the JSON response from the model
-        entities = json.loads(result.get("response", "{}"))
+        raw_response = result.get("response", "{}")
+        
+        if "{" in raw_response and "}" in raw_response:
+            json_str = raw_response[raw_response.find("{"):raw_response.rfind("}")+1]
+        else:
+            json_str = raw_response
+
+        try:
+            entities = json.loads(json_str)
+        except json.JSONDecodeError:
+            print(f"Failed to parse JSON from response: {raw_response}")
+            entities = {}
         
         # Ensure all keys are present
         defaults = {
-            "project_name": None,
-            "client_name": None,
-            "effective_date": None,
-            "type": None,
-            "scope_timeline": []
+            "project_name": "Project Name",
+            "client_name": "Client Name",
+            "effective_date": "TBD",
+            "type": "TBD",
+            "scope_timeline": [],
+            "background": "N/A",
+            "scope_description": "N/A",
+            "phases": {},
+            "tech_stack": [],
+            "client_contact": "N/A"
         }
         
         # Merge with defaults
+        final_entities = {}
         for key, val in defaults.items():
-            if key not in entities:
-                entities[key] = val
+            final_entities[key] = entities.get(key, val)
         
-        return entities
+        return final_entities
 
     except Exception as e:
         print(f"Error calling Ollama: {e}")
         # Return empty structure on failure
         return {
-            "project_name": None,
-            "client_name": None,
-            "effective_date": None,
-            "type": None,
+            "project_name": "Error",
+            "client_name": "Error",
+            "effective_date": "N/A",
+            "type": "N/A",
             "scope_timeline": []
         }
 
